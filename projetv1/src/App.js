@@ -8,21 +8,31 @@ import Grid from '@mui/material/Grid';
 
 function App() {
   return (
-    
-    <Grid container spacing={2} className='firstcard'>
-      <Grid >
-        <div className='card' item xs={4}>prix moyen d'une séance</div>
+    <body className='body'>
+    <Grid container spacing={1} className='firstcard'>
+      <Grid item xs={4}>
+        <div className='simplecard' >prix moyen d'une séance</div>
       </Grid>
-      <Grid >
-        <div className='card' item xs={4}>séance du jour</div>
+      <Grid item xs={4}>
+        <div className='simplecard'>séance du jour</div>
       </Grid>
-      <Grid>
-        <div className='card' item xs={4}>Membre</div>
+      <Grid item xs={4}>
+        <div className='simplecard' >Membre</div>
       </Grid>
-      <Grid>
-        <div className='card' item xs={12}>xs=8</div>
+      <Grid item xs={8}>
+        <div className='graphcard'>Nombre de visiteur</div>
+      </Grid>
+      <Grid item xs={4}>
+        <div className='graphcard'>Style</div>
+      </Grid>
+      <Grid item xs={7}>
+        <div className='graphcard'>Genre/Age des visiteurs</div>
+      </Grid>
+      <Grid item xs={5}>
+        <div className='graphcard'>Origine des films</div>
       </Grid>
     </Grid>
+    </body>
    
   );
 }

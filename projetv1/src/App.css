@@ -1,17 +1,25 @@
 
-.firstcard{
-  align-items: center;
+.body{
+  background-color: #212427;
 }
-.card{
-  background-color: #1f1427;
+.simplecard{
+  background-color: #282C31;
   background-clip: border-box;
-  border: 1px solid black;
-  border-radius: 0.2857rem; 
-  height: 10em;
+  border: 2px solid #4D4D4D;
+  border-radius: 1em; 
+  height: 8em;
   color: white;
-  width: 20em;
-  margin: 1cm;
+  margin: 5px;
   text-align: center;
-  
+}
 
+.graphcard{
+  background-color: #282C31;
+  background-clip: border-box;
+  border: 2px solid #4D4D4D;
+  border-radius: 1em; 
+  height: 12em;
+  color: white;
+  margin: 5px;
+  text-align: center;
 }
