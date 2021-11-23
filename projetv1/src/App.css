@@ -1,6 +1,19 @@
-
 .body{
-  background-color: #212427;
+  background-color:gray;
+  display: flex;
+  justify-content: right;
+  position:'fix';
+  height: 100%;
+}
+.drawer{
+  background-color: #282C31;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #4D4D4D ;
 }
 .simplecard{
   background-color: #282C31;
