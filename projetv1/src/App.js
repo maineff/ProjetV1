@@ -1,4 +1,5 @@
 import './App.css';
+import API_FREQUENTATION from "./API_Frequentation";
 // reactstrap components
 import Grid from '@mui/material/Grid';
 import * as React from 'react';
@@ -10,10 +11,33 @@ import ListItemText from '@mui/material/ListItemText';
 
 const drawerWidth = 50;
 
+function start() {
+  const apiFrequentation = new API_FREQUENTATION();
+  apiFrequentation
+  .fetch()
+  .then(function (response) {
+    const data = response.data;
+    alert(data[0]);
+
+      // On récupère l'information principal
+      const annee = data.frequentation[0].annee;
+
+      // Modifier le DOM
+      document.getElementById('annee').innerHTML = annee;
+  })
+  .catch(function(error) {
+    // Affiche une erreur
+    console.error(error);
+    alert(error)
+  });
+  
+}
+
 function App() {
+  start();
   return (
   
-    <Box className='body' > 
+    <Box className='body'> 
 
       <Drawer sx={{width: drawerWidth,}}
         variant="permanent"
@@ -25,7 +49,6 @@ function App() {
             </ListItem>
           ))}
         </List>
-    
       </Drawer>
       <Box 
         component="main"
@@ -33,7 +56,10 @@ function App() {
       > 
         <Grid container spacing={1} className='firstcard'>
           <Grid item xs={4}>
-            <div className='simplecard' >prix moyen d'une séance</div>
+            <div className='simplecard' >prix moyen d'une séance
+          
+            
+            </div>
           </Grid>
           <Grid item xs={4}>
             <div className='simplecard'>séance du jour</div>
