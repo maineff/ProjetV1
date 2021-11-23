@@ -5,20 +5,22 @@ import './App.css';
 // reactstrap components
 import Grid from '@mui/material/Grid';
 
+
 function App() {
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={8}>
-        <div className='card'>xs=8</div>
+    
+    <Grid container spacing={2} className='firstcard'>
+      <Grid >
+        <div className='card' item xs={4}>prix moyen d'une séance</div>
       </Grid>
-      <Grid item xs={4}>
-        <div className='card'>xs=4</div>
+      <Grid >
+        <div className='card' item xs={4}>séance du jour</div>
       </Grid>
-      <Grid item xs={4}>
-        <div className='card'>xs=4</div>
+      <Grid>
+        <div className='card' item xs={4}>Membre</div>
       </Grid>
-      <Grid item xs={8}>
-        <div className='card'>xs=8</div>
+      <Grid>
+        <div className='card' item xs={12}>xs=8</div>
       </Grid>
     </Grid>
    

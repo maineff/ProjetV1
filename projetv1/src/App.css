@@ -1,11 +1,17 @@
 
+.firstcard{
+  align-items: center;
+}
 .card{
   background-color: #1f1427;
   background-clip: border-box;
   border: 1px solid black;
   border-radius: 0.2857rem; 
-  height: 6em;
+  height: 10em;
   color: white;
-  margin-right: 2cm;
+  width: 20em;
+  margin: 1cm;
+  text-align: center;
+  
 
 }
