@@ -36,9 +36,7 @@ class App extends React.Component {
     this.setState({ info: data.records[0], loading: false });
   }
   param() {
-    data.datasets[0].data[0] = parseInt(
-      this.state.info.fields.entrees_millions
-    );
+    data.datasets[0].data[0] = this.state.info.fields.entrees_millions;
     data.labels[0] = this.state.info.fields.annee;
   }
 
