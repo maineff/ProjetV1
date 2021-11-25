@@ -54,27 +54,28 @@ class App extends React.Component {
 
     return (
       <Box className="body">
-        
+
         <Sidebar/>
 
         <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
           <Grid container spacing={1} className="firstcard">
             <Grid item xs={4}>
-              <div className="simplecard">
-                Nombre d'entrées en millions
-                <div>{this.state.info.fields.entrees_millions}</div>
-                en <div>{this.state.info.fields.annee}</div>
+              <div className="simplecard"><br/><br/>
+                Nombre d'entrées en millions: {this.state.info.fields.entrees_millions}
+                <div> en {this.state.info.fields.annee} </div>
               </div>
             </Grid>
             <Grid item xs={4}>
               <div className="simplecard">
-                Nombre de séances
+                <br/><br/>
+                Nombre de séances<br/><br/>
                 <div>{this.state.info.fields.seances_milliers}</div>
               </div>
             </Grid>
             <Grid item xs={4}>
               <div className="simplecard">
-                Recette moyenne par personne
+              <br/><br/>
+                Recette moyenne par personne<br/><br/>
                 <div>
                   {this.state.info.fields.recette_moyenne_par_entree_eur} euros
                 </div>
@@ -95,7 +96,7 @@ class App extends React.Component {
             <Grid item xs={4}>
               <div className="graphcard">
                 Recette
-                <Bar className="bar" data={data} />
+                <Bar className="bar" data={data}  />
                 <div>
                   {this.state.info.fields.recette_guichet_meur_courants}{" "}
                   millions d'euros
