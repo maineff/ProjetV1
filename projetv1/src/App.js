@@ -10,13 +10,15 @@ import ListItemText from "@mui/material/ListItemText";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
-const drawerWidth = 50;
+import Sidebar from "./component/Sidebar/Sidebar";
+
+
 
 const data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
   datasets: [
     {
-      label: "couleur pref en france",
+      label: "en millions d'euros",
       data: [43, 19, 3, 5, 2, 3],
     },
   ],
@@ -52,15 +54,9 @@ class App extends React.Component {
 
     return (
       <Box className="body">
-        <Drawer sx={{ width: drawerWidth }} variant="permanent" anchor="left">
-          <List className="drawer">
-            {["HOME", "SEARCH"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
+        
+        <Sidebar/>
+
         <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
           <Grid container spacing={1} className="firstcard">
             <Grid item xs={4}>
