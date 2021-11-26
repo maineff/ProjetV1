@@ -55,7 +55,13 @@ class App extends React.Component {
     return (
       <Box className="body">
 
-        <Sidebar/>
+        <div className="container" >
+        <Sidebar/> 
+
+        
+
+
+        
 
         <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
           <Grid container spacing={1} className="firstcard">
@@ -119,6 +125,7 @@ class App extends React.Component {
             </Grid>
           </Grid>
         </Box>
+        </div>
       </Box>
     );
   }

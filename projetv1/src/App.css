@@ -1,10 +1,10 @@
 .body {
-  background-color: gray;
   display: flex;
   justify-content: right;
   position: "fix";
-  height: 100%;
+  height: 800px;
 }
+
 .drawer {
   background-color: #282c31;
   color: white;
@@ -15,6 +15,7 @@
   align-items: center;
   border: 2px solid #4d4d4d;
 }
+
 .simplecard {
   background-color: #282c31;
   background-clip: border-box;
@@ -24,6 +25,7 @@
   color: white;
   margin: 5px;
   text-align: center;
+  
 }
 
 .graphcard {
@@ -35,8 +37,16 @@
   color: white;
   margin: 5px;
   text-align: center;
+  
 }
 .bar {
   background-color: #282c31;
   color: blue;
 }
+
+
+.container{
+  display: flex;
+  background-color: #6d6b6b;
+}
+

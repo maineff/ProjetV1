@@ -1,26 +1,32 @@
 import "./Sidebar.css";
+import React from "react";
 
-import * as React from "react";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import SearchIcon from '@mui/icons-material/Search';
+import ToggleOnIcon from '@mui/icons-material/ToggleOn';
 
-
-const drawerWidth = 50;
-
-const Sidebar = () => {
+function Sidebar() {
     return (
+        <div className="sidebar">
+            <div className="sidebarWrapper">
+                <div className="sidebarMenu">
+                    <h3 className="sidebartitle">Dashboard</h3>
+                    <ul className="sidebarList">
+                        <li className="sidebarListItem">
+                            <DashboardIcon /> Dashboard
+                        </li>
+                        <li className="sidebarListItem">
+                            <SearchIcon /> Search
+                        </li>
+                        <li className="sidebarListItem">
+                            <ToggleOnIcon/> Change theme
+                        </li>
 
-        <Drawer sx={{ width: drawerWidth }} variant="permanent" anchor="left">
-            <List className="drawer">
-                {["HOME", "SEARCH"].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </Drawer>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
     );
 }
 
