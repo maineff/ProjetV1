@@ -8,21 +8,24 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
 import Sidebar from "./component/Sidebar/Sidebar";
 
-
-
 const data = {
-  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  labels: [],
   datasets: [
     {
       label: "en millions d'euros",
-      data: [43, 19, 3, 5, 2, 3],
+      data: [],
+      borderColor: "white",
     },
   ],
 };
+
+let annee = [];
+let entrees_millions = [];
 
 class App extends React.Component {
   state = {
@@ -32,14 +35,20 @@ class App extends React.Component {
 
   async componentDidMount() {
     const url =
-      "https://data.culture.gouv.fr//api/records/1.0/search/?dataset=frequentation-dans-les-salles-de-cinema&q=&facet=annee&refine.annee=2020";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ info: data.records[0], loading: false });
+      "https://data.culture.gouv.fr//api/records/1.0/search/?dataset=frequentation-dans-les-salles-de-cinema&q=&facet=annee";
+    for (let i = 2015; i <= 2020; i++) {
+      const response = await fetch(url + "&refine.annee=" + i);
+      const data = await response.json();
+      this.setState({ info: data.records[0], loading: false });
+      annee.push(this.state.info.fields.annee);
+      entrees_millions.push(this.state.info.fields.entrees_millions);
+    }
   }
   param() {
-    data.datasets[0].data[0] = this.state.info.fields.entrees_millions;
-    data.labels[0] = this.state.info.fields.annee;
+    for (let i = 0; i < 5; i++) {
+      data.datasets[0].data[i] = entrees_millions[i];
+      data.labels[i] = annee[i];
+    }
   }
 
   render() {
@@ -54,28 +63,36 @@ class App extends React.Component {
 
     return (
       <Box className="body">
-
-        <Sidebar/>
+        <Sidebar />
 
         <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
           <Grid container spacing={1} className="firstcard">
             <Grid item xs={4}>
-              <div className="simplecard"><br/><br/>
-                Nombre d'entrées en millions: {this.state.info.fields.entrees_millions}
+              <div className="simplecard">
+                <br />
+                <br />
+                Nombre d'entrées en millions:{" "}
+                {this.state.info.fields.entrees_millions}
                 <div> en {this.state.info.fields.annee} </div>
               </div>
             </Grid>
             <Grid item xs={4}>
               <div className="simplecard">
-                <br/><br/>
-                Nombre de séances<br/><br/>
+                <br />
+                <br />
+                Nombre de séances
+                <br />
+                <br />
                 <div>{this.state.info.fields.seances_milliers}</div>
               </div>
             </Grid>
             <Grid item xs={4}>
               <div className="simplecard">
-              <br/><br/>
-                Recette moyenne par personne<br/><br/>
+                <br />
+                <br />
+                Recette moyenne par personne
+                <br />
+                <br />
                 <div>
                   {this.state.info.fields.recette_moyenne_par_entree_eur} euros
                 </div>
@@ -84,6 +101,7 @@ class App extends React.Component {
             <Grid item xs={8}>
               <div className="graphcard">
                 Nombre d'entrées
+                <Line className="bar" data={data} />
                 {/* a voir si c'est utile
                 <iframe
                   src="https://data.culture.gouv.fr/chart/embed/?dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJsaW5lIiwiZnVuYyI6IlNVTSIsInlBeGlzIjoiZW50cmVlc19taWxsaW9ucyIsInNjaWVudGlmaWNEaXNwbGF5Ijp0cnVlLCJjb2xvciI6IiMwMDAwODAifV0sInhBeGlzIjoiYW5uZWUiLCJtYXhwb2ludHMiOjUwLCJzb3J0IjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJmcmVxdWVudGF0aW9uLWRhbnMtbGVzLXNhbGxlcy1kZS1jaW5lbWEiLCJvcHRpb25zIjp7ImRpc2p1bmN0aXZlLmFubmVlIjp0cnVlfX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&static=false&datasetcard=false"
@@ -96,7 +114,7 @@ class App extends React.Component {
             <Grid item xs={4}>
               <div className="graphcard">
                 Recette
-                <Bar className="bar" data={data}  />
+                <Bar className="bar" data={data} />
                 <div>
                   {this.state.info.fields.recette_guichet_meur_courants}{" "}
                   millions d'euros
