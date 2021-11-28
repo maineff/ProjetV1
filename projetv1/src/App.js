@@ -7,6 +7,7 @@ import Admin from "./component/Admin/Admin";
 const App= () =>{
   return(
 
+    //on crée des routes pour accéder aux différentes pages
     <BrowserRouter>
       <Switch>
         <Route exact path="/" exact component={Home} />
