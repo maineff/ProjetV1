@@ -11,6 +11,8 @@ import { Bar } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+
 import Sidebar from "../Sidebar/Sidebar";
 
 const data = {
@@ -124,13 +126,16 @@ class Home extends React.Component {
           <Sidebar />
 
           <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
+          <center><h1>Dashboard cinema </h1></center>
             <Grid container spacing={1} className="firstcard">
+            
               <Grid item xs={4}>
                 <div className="simplecard">
                   <br />
                   <br />
                   Nombre d'entrées en millions:{" "}
-                  {this.state.info.fields.entrees_millions}
+                  {this.state.info.fields.entrees_millions}  
+                  <ArrowCircleDownIcon/>
                   <div> en {this.state.info.fields.annee} </div>
                 </div>
               </Grid>
@@ -141,7 +146,9 @@ class Home extends React.Component {
                   Nombre de séances
                   <br />
                   <br />
-                  <div>{this.state.info.fields.seances_milliers}</div>
+                  <div>{this.state.info.fields.seances_milliers}
+                  <ArrowCircleDownIcon/></div>
+                  
                 </div>
               </Grid>
               <Grid item xs={4}>
@@ -153,6 +160,7 @@ class Home extends React.Component {
                   <br />
                   <div>
                     {this.state.info.fields.recette_moyenne_par_entree_eur} €
+                    <ArrowCircleDownIcon/>
                   </div>
                 </div>
               </Grid>
@@ -171,7 +179,7 @@ class Home extends React.Component {
               </Grid>
               <Grid item xs={6}>
                 <div className="graphcard">
-                  Nombre de cinema actifs
+                  Nombre de cinemas actifs
                   <Bar className="bar" data={dataBaton} />
                 </div>
               </Grid>
@@ -195,6 +203,7 @@ class Home extends React.Component {
                   <div>
                     {this.state.info.fields.recette_guichet_meur_courants}{" "}
                     millions d'euros
+                    <ArrowCircleDownIcon/>
                   </div>
                 </div>
                 <br />
@@ -216,6 +225,7 @@ class Home extends React.Component {
                   <div>
                     {this.state.info.fields.recette_guichet_meur_courants}{" "}
                     millions d'euros
+                    <ArrowCircleDownIcon/>
                   </div>
                 </div>
               </Grid>

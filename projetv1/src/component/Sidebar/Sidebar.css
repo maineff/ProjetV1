@@ -1,29 +1,29 @@
 .sidebar{
-  width:20%;
+  width:500px;
   position: sticky;
-  list-style: none;
-
+  text-decoration: none;
 }
 
 .sidebarWrapper{
   padding: 8px;
-
+  text-decoration: none;
 }
 
 .sidebarList{
   list-style: none;
   padding: 5px;
-  
+  text-decoration: none;
 }
 
 .sidebarListItem{
   padding: 10px;
   cursor: pointer;
-
+  text-decoration: none;
+  
 }
 
 .sidebarListItem:hover{
   background-color:rgb(255,255,255);
   border-radius: 10px;
-  
+  text-decoration: none;
 }
