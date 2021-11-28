@@ -1,6 +1,7 @@
 .sidebar{
   width:20%;
   position: sticky;
+  list-style: none;
 
 }
 

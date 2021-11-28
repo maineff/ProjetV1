@@ -13,13 +13,72 @@ import Chart from "chart.js/auto";
 
 import Sidebar from "../Sidebar/Sidebar";
 
+const data = {
+  labels: [],
+  datasets: [
+    {
+      label: "en millions d'euros",
+      data: [],
+      borderColor: "white",
+    },
+  ],
+};
+const dataBaton = {
+  labels: [
+    "AUVERGNE/RHONE-ALPES",
+    "BOURGOGNE / FRANCHE-COMTE",
+    "BRETAGNE",
+    "CENTRE-VAL DE LOIRE",
+    "CORSE",
+    "GRAND EST",
+    "HAUTS DE FRANCE",
+    "ILE-DE-FRANCE",
+    "NORMANDIE",
+    "NOUVELLE AQUITAINE",
+    "OCCITANIE",
+    "PAYS DE LA LOIRE",
+    "PROVENCE-ALPES-COTE D AZUR",
+  ],
+  datasets: [
+    {
+      label: "par ville",
+      data: [],
+      backgroundcolor: "white",
+    },
+  ],
+};
 
-function Search1 () {
+let annee = [];
+let entrees_millions = [];
+let villes = [
+  "AUVERGNE+%2F+RHONE-ALPES",
+  "BOURGOGNE+%2F+FRANCHE-COMTE",
+  "BRETAGNE",
+  "CENTRE-VAL+DE+LOIRE",
+  "CORSE",
+  "GRAND+EST",
+  "HAUTS+DE+FRANCE",
+  "ILE-DE-FRANCE",
+  "NORMANDIE",
+  "NOUVELLE+AQUITAINE",
+  "OCCITANIE",
+  "PAYS+DE+LA+LOIRE",
+  "PROVENCE-ALPES-COTE+D%27AZUR",
+];
+let cinemas = [];
 
+class Search1 extends React.Component {
+render(){
     return (
-        <div>ok</div>
-    );
+      <Box className="body">
+        <div className="container">
+          <Sidebar />
 
+         
+        </div>
+      </Box>
+    );
+  }
 }
 
 export default Search1;
