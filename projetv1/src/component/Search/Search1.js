@@ -10,6 +10,8 @@ import ListItemText from "@mui/material/ListItemText";
 import { Bar } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
+import { Input } from "@mui/material";
+import { Button } from "@mui/material";
 
 import Sidebar from "../Sidebar/Sidebar";
 
@@ -68,13 +70,34 @@ let villes = [
 let cinemas = [];
 
 class Search1 extends React.Component {
-render(){
+  render() {
     return (
       <Box className="body">
         <div className="container">
           <Sidebar />
 
-         
+          <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
+            <Grid container spacing={5} className="firstcard">
+              <Grid item xs={12}>
+                <Input className="input"></Input>
+              </Grid>
+              <Grid item xs={12}>
+                <Input className="input"></Input>
+              </Grid>
+              <Grid item xs={12}>
+                <Input className="input"></Input>
+              </Grid>
+              <Grid item xs={4}>
+                <Button className="button">AJOUTER</Button>
+              </Grid>
+              <Grid item xs={4}>
+                <Button className="buton">SAUVEGARDER</Button>
+              </Grid>
+              <Grid item xs={4}>
+                <Button className="buton">SUPPRIMER</Button>
+              </Grid>
+            </Grid>
+          </Box>
         </div>
       </Box>
     );

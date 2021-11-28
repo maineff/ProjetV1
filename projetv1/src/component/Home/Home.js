@@ -152,8 +152,7 @@ class Home extends React.Component {
                   <br />
                   <br />
                   <div>
-                    {this.state.info.fields.recette_moyenne_par_entree_eur}{" "}
-                    €
+                    {this.state.info.fields.recette_moyenne_par_entree_eur} €
                   </div>
                 </div>
               </Grid>
@@ -174,7 +173,6 @@ class Home extends React.Component {
                 <div className="graphcard">
                   Nombre de cinema actifs
                   <Bar className="bar" data={dataBaton} />
-                  
                 </div>
               </Grid>
               <Grid item xs={7}>
@@ -189,13 +187,18 @@ class Home extends React.Component {
                   height="300"
                   frameborder="0"
                 ></iframe>*/}
-                <br/><br/>
-                  Recette<br/><br/>
+                  <br />
+                  <br />
+                  Recette
+                  <br />
+                  <br />
                   <div>
                     {this.state.info.fields.recette_guichet_meur_courants}{" "}
                     millions d'euros
                   </div>
-                </div><br/><br/>
+                </div>
+                <br />
+                <br />
 
                 <div className="simplecard">
                   {/*Géolocalisation des cinémas en France
@@ -205,15 +208,16 @@ class Home extends React.Component {
                   height="300"
                   frameborder="0"
                 ></iframe>*/}
-                <br/><br/>
-                  Recette<br/><br/>
+                  <br />
+                  <br />
+                  Recette
+                  <br />
+                  <br />
                   <div>
                     {this.state.info.fields.recette_guichet_meur_courants}{" "}
                     millions d'euros
                   </div>
-                
                 </div>
-                
               </Grid>
             </Grid>
           </Box>
