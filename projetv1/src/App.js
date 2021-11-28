@@ -23,14 +23,54 @@ const data = {
     },
   ],
 };
+const dataBaton = {
+  labels: [
+    "AUVERGNE/RHONE-ALPES",
+    "BOURGOGNE / FRANCHE-COMTE",
+    "BRETAGNE",
+    "CENTRE-VAL DE LOIRE",
+    "CORSE",
+    "GRAND EST",
+    "HAUTS DE FRANCE",
+    "ILE-DE-FRANCE",
+    "NORMANDIE",
+    "NOUVELLE AQUITAINE",
+    "OCCITANIE",
+    "PAYS DE LA LOIRE",
+    "PROVENCE-ALPES-COTE D AZUR",
+  ],
+  datasets: [
+    {
+      label: "par ville",
+      data: [],
+    },
+  ],
+};
 
 let annee = [];
 let entrees_millions = [];
+let villes = [
+  "AUVERGNE+%2F+RHONE-ALPES",
+  "BOURGOGNE+%2F+FRANCHE-COMTE",
+  "BRETAGNE",
+  "CENTRE-VAL+DE+LOIRE",
+  "CORSE",
+  "GRAND+EST",
+  "HAUTS+DE+FRANCE",
+  "ILE-DE-FRANCE",
+  "NORMANDIE",
+  "NOUVELLE+AQUITAINE",
+  "OCCITANIE",
+  "PAYS+DE+LA+LOIRE",
+  "PROVENCE-ALPES-COTE+D%27AZUR",
+];
+let cinemas = [];
 
 class Home extends React.Component {
   state = {
     loading: true,
     info: null,
+    info2: null,
   };
 
   async componentDidMount() {
@@ -43,11 +83,26 @@ class Home extends React.Component {
       annee.push(this.state.info.fields.annee);
       entrees_millions.push(this.state.info.fields.entrees_millions);
     }
+    const url2 =
+      "https://data.culture.gouv.fr/api/records/1.0/search/?dataset=etablissements-cinematographiques&q=&facet=region_administrative&facet=genre&facet=multiplexe&facet=zone_de_la_commune&refine.region_administrative=";
+
+    for (let i = 0; i <= villes.length; i++) {
+      const response = await fetch(url2 + villes[i]);
+      const dataBaton = await response.json();
+      this.setState({ info2: dataBaton, loading: false });
+      cinemas.push(this.state.info2.nhits);
+    }
   }
+
   param() {
     for (let i = 0; i < 6; i++) {
       data.datasets[0].data[i] = entrees_millions[i];
       data.labels[i] = annee[i];
+    }
+  }
+  paramBaton() {
+    for (let i = 0; i <= villes.length; i++) {
+      dataBaton.datasets[0].data[i] = cinemas[i];
     }
   }
 
@@ -60,86 +115,86 @@ class Home extends React.Component {
       return <div>ERREUR</div>;
     }
     this.param();
+    this.paramBaton();
 
     return (
       <Box className="body">
-        <div className="container" >
-        
-        <Sidebar />
+        <div className="container">
+          <Sidebar />
 
-
-        <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
-          <Grid container spacing={1} className="firstcard">
-            <Grid item xs={4}>
-              <div className="simplecard">
-                <br />
-                <br />
-                Nombre d'entrées en millions:{" "}
-                {this.state.info.fields.entrees_millions}
-                <div> en {this.state.info.fields.annee} </div>
-              </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div className="simplecard">
-                <br />
-                <br />
-                Nombre de séances
-                <br />
-                <br />
-                <div>{this.state.info.fields.seances_milliers}</div>
-              </div>
-            </Grid>
-            <Grid item xs={4}>
-              <div className="simplecard">
-                <br />
-                <br />
-                Recette moyenne par personne
-                <br />
-                <br />
-                <div>
-                  {this.state.info.fields.recette_moyenne_par_entree_eur} euros
+          <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
+            <Grid container spacing={1} className="firstcard">
+              <Grid item xs={4}>
+                <div className="simplecard">
+                  <br />
+                  <br />
+                  Nombre d'entrées en millions:{" "}
+                  {this.state.info.fields.entrees_millions}
+                  <div> en {this.state.info.fields.annee} </div>
                 </div>
-              </div>
-            </Grid>
-            <Grid item xs={6}>
-              <div className="graphcard">
-                Nombre d'entrées
-                <Line className="bar" data={data} />
-                {/* a voir si c'est utile
+              </Grid>
+              <Grid item xs={4}>
+                <div className="simplecard">
+                  <br />
+                  <br />
+                  Nombre de séances
+                  <br />
+                  <br />
+                  <div>{this.state.info.fields.seances_milliers}</div>
+                </div>
+              </Grid>
+              <Grid item xs={4}>
+                <div className="simplecard">
+                  <br />
+                  <br />
+                  Recette moyenne par personne
+                  <br />
+                  <br />
+                  <div>
+                    {this.state.info.fields.recette_moyenne_par_entree_eur}{" "}
+                    euros
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={6}>
+                <div className="graphcard">
+                  Nombre d'entrées
+                  <Line className="bar" data={data} />
+                  {/* a voir si c'est utile
                 <iframe
                   src="https://data.culture.gouv.fr/chart/embed/?dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJsaW5lIiwiZnVuYyI6IlNVTSIsInlBeGlzIjoiZW50cmVlc19taWxsaW9ucyIsInNjaWVudGlmaWNEaXNwbGF5Ijp0cnVlLCJjb2xvciI6IiMwMDAwODAifV0sInhBeGlzIjoiYW5uZWUiLCJtYXhwb2ludHMiOjUwLCJzb3J0IjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJmcmVxdWVudGF0aW9uLWRhbnMtbGVzLXNhbGxlcy1kZS1jaW5lbWEiLCJvcHRpb25zIjp7ImRpc2p1bmN0aXZlLmFubmVlIjp0cnVlfX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&static=false&datasetcard=false"
                   width="400"
                   height="300"
                   frameborder="0"
                 ></iframe>*/}
-              </div>
-            </Grid>
-            <Grid item xs={6}>
-              <div className="graphcard">
-                Recette
-                <Bar className="bar" data={data} />
-                <div>
-                  {this.state.info.fields.recette_guichet_meur_courants}{" "}
-                  millions d'euros
                 </div>
-              </div>
-            </Grid>
-            <Grid item xs={7}>
-              <div className="graphcard">Genre/Age des visiteurs</div>
-            </Grid>
-            <Grid item xs={5}>
-              <div className="graphcard">
-                {/*Géolocalisation des cinémas en France
+              </Grid>
+              <Grid item xs={6}>
+                <div className="graphcard">
+                  Recette
+                  <Bar className="bar" data={dataBaton} />
+                  <div>
+                    {this.state.info.fields.recette_guichet_meur_courants}{" "}
+                    millions d'euros
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={7}>
+                <div className="graphcard">Genre/Age des visiteurs</div>
+              </Grid>
+              <Grid item xs={5}>
+                <div className="graphcard">
+                  {/*Géolocalisation des cinémas en France
                 <iframe
                   src="https://data.culture.gouv.fr/explore/embed/dataset/etablissements-cinematographiques/analyze/?dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiQ09VTlQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiIjOGRhMGNiIn1dLCJ4QXhpcyI6InJlZ2lvbl9hZG1pbmlzdHJhdGl2ZSIsIm1heHBvaW50cyI6NTAsInNvcnQiOiIiLCJjb25maWciOnsiZGF0YXNldCI6ImV0YWJsaXNzZW1lbnRzLWNpbmVtYXRvZ3JhcGhpcXVlcyIsIm9wdGlvbnMiOnt9fX1dLCJ0aW1lc2NhbGUiOiIiLCJkaXNwbGF5TGVnZW5kIjp0cnVlLCJhbGlnbk1vbnRoIjp0cnVlfQ%3D%3D&static=false&datasetcard=false"
                   width="400"
                   height="300"
                   frameborder="0"
                 ></iframe>*/}
-              </div>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-        </Box>
+          </Box>
         </div>
       </Box>
     );
