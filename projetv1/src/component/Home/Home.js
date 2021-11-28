@@ -1,4 +1,4 @@
-import "./App.css";
+import "../../App.css";
 // reactstrap components
 import Grid from "@mui/material/Grid";
 import * as React from "react";
@@ -11,7 +11,7 @@ import { Bar } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
-import Sidebar from "./component/Sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 
 const data = {
   labels: [],
@@ -36,7 +36,7 @@ class Home extends React.Component {
   async componentDidMount() {
     const url =
       "https://data.culture.gouv.fr//api/records/1.0/search/?dataset=frequentation-dans-les-salles-de-cinema&q=&facet=annee";
-    for (let i = 2015; i < 2021; i++) {
+    for (let i = 2015; i <= 2020; i++) {
       const response = await fetch(url + "&refine.annee=" + i);
       const data = await response.json();
       this.setState({ info: data.records[0], loading: false });
@@ -45,7 +45,7 @@ class Home extends React.Component {
     }
   }
   param() {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 5; i++) {
       data.datasets[0].data[i] = entrees_millions[i];
       data.labels[i] = annee[i];
     }
@@ -101,7 +101,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
               <div className="graphcard">
                 Nombre d'entrées
                 <Line className="bar" data={data} />
@@ -114,7 +114,7 @@ class Home extends React.Component {
                 ></iframe>*/}
               </div>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
               <div className="graphcard">
                 Recette
                 <Bar className="bar" data={data} />
