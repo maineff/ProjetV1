@@ -1,4 +1,4 @@
-import "../App.css";
+import "../../App.css";
 // reactstrap components
 import Grid from "@mui/material/Grid";
 import * as React from "react";
@@ -12,6 +12,7 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+
 
 const data = {
   labels: [],
@@ -67,7 +68,7 @@ let villes = [
 ];
 let cinemas = [];
 
-class Widget1 extends React.Component {
+class Chart1 extends React.Component {
   state = {
     loading: true,
     info: null,
@@ -119,16 +120,19 @@ class Widget1 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="simplecard">
-        <br />
-        <br />
-        Annee 
-        <div> en {this.state.info.fields.annee} </div>
+        <div className="graphcard">
+        Nombre d'entrées
+        <Line className="bar" data={data} />
+        {/* a voir si c'est utile
+      <iframe
+        src="https://data.culture.gouv.fr/chart/embed/?dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJsaW5lIiwiZnVuYyI6IlNVTSIsInlBeGlzIjoiZW50cmVlc19taWxsaW9ucyIsInNjaWVudGlmaWNEaXNwbGF5Ijp0cnVlLCJjb2xvciI6IiMwMDAwODAifV0sInhBeGlzIjoiYW5uZWUiLCJtYXhwb2ludHMiOjUwLCJzb3J0IjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJmcmVxdWVudGF0aW9uLWRhbnMtbGVzLXNhbGxlcy1kZS1jaW5lbWEiLCJvcHRpb25zIjp7ImRpc2p1bmN0aXZlLmFubmVlIjp0cnVlfX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&static=false&datasetcard=false"
+        width="400"
+        height="300"
+        frameborder="0"
+      ></iframe>*/}
       </div>
     );
-  
-
   }
 }
 
-export default Widget1;
+export default Chart1;

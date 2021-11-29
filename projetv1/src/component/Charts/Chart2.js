@@ -1,6 +1,6 @@
-import "../App.css";
+import "../../App.css";
 import * as React from "react";
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import { Bar } from "react-chartjs-2";
 
 const data = {
   labels: [],
@@ -8,7 +8,6 @@ const data = {
     {
       label: "en millions d'euros",
       data: [],
-      borderColor: "white",
     },
   ],
 };
@@ -32,7 +31,8 @@ const dataBaton = {
     {
       label: "par ville",
       data: [],
-      backgroundcolor: "white",
+      fill: "blue",
+      stroke: "blue",
     },
   ],
 };
@@ -56,7 +56,7 @@ let villes = [
 ];
 let cinemas = [];
 
-class Widget2 extends React.Component {
+class Chart2 extends React.Component {
   state = {
     loading: true,
     info: null,
@@ -108,16 +108,12 @@ class Widget2 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="simplecard">
-        <br /><br />
-        Nombre de séances
-        <br /><br />
-        <div>{this.state.info.fields.seances_milliers}
-        <ArrowCircleDownIcon/></div>
-        
+        <div className="graphcard">
+        Nombre de cinemas actifs
+        <Bar className="bar" data={dataBaton}/>
       </div>
     );
   }
 }
 
-export default Widget2;
+export default Chart2;

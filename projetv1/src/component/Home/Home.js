@@ -7,17 +7,18 @@ import Box from "@mui/material/Box";
 
 
 import Sidebar from "../Sidebar/Sidebar";
-import Chart1 from "../Chart1";
-import Chart2 from "../Chart2";
-import Widget1 from "../Widget1";
-import Widget2 from "../Widget2";
-import Widget3 from "../Widget3";
-import Widget4 from "../Widget4";
-import Widget5 from "../Widget5";
+import Chart1 from "../Charts/Chart1";
+import Chart2 from "../Charts/Chart2";
+import Widget1 from "../Widgets/Widget1";
+import Widget2 from "../Widgets/Widget2";
+import Widget3 from "../Widgets/Widget3";
+import Widget4 from "../Widgets/Widget4";
+import Widget5 from "../Widgets/Widget5";
 
 
 import "../../App.css";
 // reactstrap components
+import "../Home/Home.css";
 
 
 

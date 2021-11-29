@@ -1,18 +1,6 @@
-import "../App.css";
-// reactstrap components
-import Grid from "@mui/material/Grid";
+import "../../App.css";
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import { Bar } from "react-chartjs-2";
-import { Line } from "react-chartjs-2";
-import Chart from "chart.js/auto";
-
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-
 
 const data = {
   labels: [],
@@ -68,7 +56,7 @@ let villes = [
 ];
 let cinemas = [];
 
-class Widget5 extends React.Component {
+class Widget2 extends React.Component {
   state = {
     loading: true,
     info: null,
@@ -122,15 +110,14 @@ class Widget5 extends React.Component {
     return (
         <div className="simplecard">
         <br /><br />
-        Recette moyenne par personne
-        <br /> <br />
-        <div>
-          {this.state.info.fields.recette_moyenne_par_entree_eur} €
-          <ArrowCircleDownIcon/>
-        </div>
+        Nombre de séances
+        <br /><br />
+        <div>{this.state.info.fields.seances_milliers}
+        <ArrowCircleDownIcon/></div>
+        
       </div>
     );
   }
 }
 
-export default Widget5;
+export default Widget2;

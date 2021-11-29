@@ -1,4 +1,4 @@
-import "../App.css";
+import "../../App.css";
 // reactstrap components
 import Grid from "@mui/material/Grid";
 import * as React from "react";
@@ -68,7 +68,7 @@ let villes = [
 ];
 let cinemas = [];
 
-class Chart1 extends React.Component {
+class Widget5 extends React.Component {
   state = {
     loading: true,
     info: null,
@@ -120,19 +120,17 @@ class Chart1 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="graphcard">
-        Nombre d'entrées
-        <Line className="bar" data={data} />
-        {/* a voir si c'est utile
-      <iframe
-        src="https://data.culture.gouv.fr/chart/embed/?dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJsaW5lIiwiZnVuYyI6IlNVTSIsInlBeGlzIjoiZW50cmVlc19taWxsaW9ucyIsInNjaWVudGlmaWNEaXNwbGF5Ijp0cnVlLCJjb2xvciI6IiMwMDAwODAifV0sInhBeGlzIjoiYW5uZWUiLCJtYXhwb2ludHMiOjUwLCJzb3J0IjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJmcmVxdWVudGF0aW9uLWRhbnMtbGVzLXNhbGxlcy1kZS1jaW5lbWEiLCJvcHRpb25zIjp7ImRpc2p1bmN0aXZlLmFubmVlIjp0cnVlfX19XSwidGltZXNjYWxlIjoiIiwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZX0%3D&static=false&datasetcard=false"
-        width="400"
-        height="300"
-        frameborder="0"
-      ></iframe>*/}
+        <div className="simplecard">
+        <br /><br />
+        Recette moyenne par personne
+        <br /> <br />
+        <div>
+          {this.state.info.fields.recette_moyenne_par_entree_eur} €
+          <ArrowCircleDownIcon/>
+        </div>
       </div>
     );
   }
 }
 
-export default Chart1;
+export default Widget5;
