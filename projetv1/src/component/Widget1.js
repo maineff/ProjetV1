@@ -1,25 +1,17 @@
-
-
-
+import "../App.css";
+// reactstrap components
 import Grid from "@mui/material/Grid";
 import * as React from "react";
 import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+import Chart from "chart.js/auto";
 
-
-import Sidebar from "../Sidebar/Sidebar";
-import Chart1 from "../Chart1";
-import Chart2 from "../Chart2";
-import Widget1 from "../Widget1";
-import Widget2 from "../Widget2";
-import Widget3 from "../Widget3";
-import Widget4 from "../Widget4";
-import Widget5 from "../Widget5";
-
-
-import "../../App.css";
-// reactstrap components
-
-
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
 const data = {
   labels: [],
@@ -50,7 +42,7 @@ const dataBaton = {
   datasets: [
     {
       label: "par ville",
-      data: [null],
+      data: [],
       backgroundcolor: "white",
     },
   ],
@@ -75,9 +67,7 @@ let villes = [
 ];
 let cinemas = [];
 
-
-class Home extends React.Component {
-
+class Widget1 extends React.Component {
   state = {
     loading: true,
     info: null,
@@ -129,55 +119,16 @@ class Home extends React.Component {
     this.paramBaton();
 
     return (
-      <Box className="body">
-        <div className="container">
-          <Sidebar />
-
-          <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
-          <center><h1>Dashboard cinema </h1></center>
-            <Grid container spacing={1} className="firstcard">
-            
-              <Grid item xs={4}>
-
-                <Widget1/>
-
-              </Grid>
-              <Grid item xs={4}>
-
-                <Widget2/>
-              
-              </Grid>
-              <Grid item xs={4}>
-
-                <Widget3/>
-
-              </Grid>
-              <Grid item xs={6}>
-                
-                  <Chart1/>
-                
-              </Grid>
-              <Grid item xs={6}>
-                
-                <Chart2/>
-
-              </Grid>
-              <Grid item xs={7}>
-                <div className="graphcard">Genre/Age des visiteurs</div>
-              </Grid>
-              <Grid item xs={5}>
-                
-                <Widget4/>
-                <br /> <br />
-                <Widget5/>
-
-              </Grid>
-            </Grid>
-          </Box>
-        </div>
-      </Box>
+        <div className="simplecard">
+        <br />
+        <br />
+        Annee 
+        <div> en {this.state.info.fields.annee} </div>
+      </div>
     );
+  
+
   }
 }
 
-export default Home;
+export default Widget1;
