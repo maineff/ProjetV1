@@ -24,7 +24,6 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const newPost = new Posts(req.body);
-
   try {
     const post = await newPost.save();
     if (!post) throw Error("Error");

@@ -14,15 +14,15 @@ import "./Admin.css";
 class Admin extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { titre: "", description: "", date: "" };
+    this.state = { title: "", body: "", date: "" };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
     e.preventDefault();
     let databody = {
-      titre: this.state.titre,
-      description: this.state.description,
+      title: this.state.title,
+      body: this.state.body,
       date: this.state.date,
     };
 
@@ -55,20 +55,18 @@ class Admin extends React.Component {
                 <Input
                   className="input"
                   type="text"
-                  name="titre"
-                  value={this.state.titre}
-                  onChange={(e) => this.setState({ titre: e.target.value })}
+                  name="tile"
+                  value={this.state.title}
+                  onChange={(e) => this.setState({ title: e.target.value })}
                 ></Input>
               </Grid>
               <Grid item xs={12}>
                 <Input
                   className="input"
-                  name="description"
+                  name="body"
                   type="text"
-                  value={this.state.description}
-                  onChange={(e) =>
-                    this.setState({ description: e.target.value })
-                  }
+                  value={this.state.body}
+                  onChange={(e) => this.setState({ body: e.target.value })}
                 ></Input>
               </Grid>
               <Grid item xs={12}>
