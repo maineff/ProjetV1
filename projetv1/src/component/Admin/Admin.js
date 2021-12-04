@@ -12,78 +12,28 @@ import "./Admin.css";
 
 //page admin pour gerer les API
 class Admin extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { titre: "", description: "", date: "" };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-    let databody = {
-      titre: this.state.titre,
-      description: this.state.description,
-      date: this.state.date,
-    };
-
-    console.log(JSON.stringify(databody));
-
-    fetch("http://localhost:5000", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(databody),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    console.log(databody, "databody");
-  }
-
   render() {
     return (
       <Box className="body">
         <div className="container">
+        
           <Sidebar />
 
           <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
             <Grid container spacing={5} className="firstcard">
+            
               <Grid item xs={12}>
-                <center>
-                  <h1>Gerer les API</h1>
-                </center>
-                <Input
-                  className="input"
-                  type="text"
-                  name="titre"
-                  value={this.state.titre}
-                  onChange={(e) => this.setState({ titre: e.target.value })}
-                ></Input>
+              <center><h1>Gerer les API</h1></center>
+                <Input className="input"></Input>
               </Grid>
               <Grid item xs={12}>
-                <Input
-                  className="input"
-                  name="description"
-                  type="text"
-                  value={this.state.description}
-                  onChange={(e) =>
-                    this.setState({ description: e.target.value })
-                  }
-                ></Input>
+                <Input className="input"></Input>
               </Grid>
               <Grid item xs={12}>
-                <Input
-                  className="input"
-                  name="date"
-                  type="text"
-                  value={this.state.date}
-                  onChange={(e) => this.setState({ date: e.target.value })}
-                ></Input>
+                <Input className="input"></Input>
               </Grid>
               <Grid item xs={4}>
-                <Button className="buton" onClick={this.handleClick}>
-                  AJOUTER
-                </Button>
+                <Button className="buton">AJOUTER</Button>
               </Grid>
               <Grid item xs={4}>
                 <Button className="buton">SAUVEGARDER</Button>
