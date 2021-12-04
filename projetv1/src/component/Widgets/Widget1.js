@@ -1,18 +1,6 @@
 import "../../App.css";
 // reactstrap components
-import Grid from "@mui/material/Grid";
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import { Bar } from "react-chartjs-2";
-import { Line } from "react-chartjs-2";
-import Chart from "chart.js/auto";
-
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-
 const data = {
   labels: [],
   datasets: [
@@ -119,15 +107,14 @@ class Widget1 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="simplecard">
+      <div className="simplecard">
         <br />
         <br />
-        Annee : <br/><br/>
+        Annee : <br />
+        <br />
         <div> {this.state.info.fields.annee} </div>
       </div>
     );
-  
-
   }
 }
 
