@@ -40,7 +40,15 @@ class Film extends React.Component {
                 <div className="card">
                   <br />
                   {films.map((film) => (
-                    <li key={film._id}>{film.titre}</li>
+                    <li key={film._id}>
+                      {film.titre + " - "}
+                      {film.description + " - "}
+                      {film.date + " - "}
+                      {film.popularite + " - "}
+                      {film.origine}
+                      <br />
+                      <br />
+                    </li>
                   ))}
 
                   <br />

@@ -27,6 +27,7 @@ class Admin extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.delete = this.delete.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleClick(e) {
@@ -52,6 +53,8 @@ class Admin extends React.Component {
       .then((data) => console.log(data))
       .then(() => alert("Le film a bien été ajouté !"));
     console.log(databody, "databody");
+
+    fetch();
   }
 
   delete(e) {
@@ -69,8 +72,29 @@ class Admin extends React.Component {
         films = film;
 
         filmActuel = films.find((unFilm) => unFilm.titre === databody.titre);
-        alert(filmActuel._id);
         axios.delete(`http://localhost:5000/${filmActuel._id}`);
+      } catch (err) {
+        alert(err);
+      }
+    };
+    fetch();
+  }
+  update(e) {
+    e.preventDefault();
+    let databody = {
+      titre: this.state.titre,
+      description: this.state.description,
+      date: this.state.date,
+      popularite: this.state.popularite,
+      origine: this.state.origine,
+    };
+    fetch = async () => {
+      try {
+        const { data: film } = await axios.get("http://localhost:5000");
+        films = film;
+        filmActuel = films.find((unFilm) => unFilm.titre === databody.titre);
+        axios.patch(`http://localhost:5000/${filmActuel._id}`);
+        alert(JSON.stringify(databody));
       } catch (err) {
         alert(err);
       }
@@ -149,7 +173,9 @@ class Admin extends React.Component {
                 </Button>
               </Grid>
               <Grid item xs={4}>
-                <Button className="buton">UPDATE</Button>
+                <Button className="buton" onClick={this.update}>
+                  UPDATE
+                </Button>
               </Grid>
               <Grid item xs={4}>
                 <Button className="buton" onClick={this.delete}>

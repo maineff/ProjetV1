@@ -46,6 +46,7 @@ router.delete("/:id", async (req, res) => {
 
 router.patch("/:id", async (req, res) => {
   try {
+    console.log(req.body);
     const post = await Posts.findByIdAndUpdate(req.params.id, req.body);
     if (!post) throw Error("no items");
     res.status(200).json({ success: true });
