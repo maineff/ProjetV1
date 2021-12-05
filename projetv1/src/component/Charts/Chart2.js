@@ -31,6 +31,7 @@ const dataBaton = {
     {
       label: "par ville",
       data: [],
+      backgroundColor: ["White"],
       fill: "blue",
       stroke: "blue",
     },
