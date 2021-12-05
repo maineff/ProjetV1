@@ -7,6 +7,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import SearchIcon from '@mui/icons-material/Search';
 import ToggleOnIcon from '@mui/icons-material/ToggleOn';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import MovieIcon from '@mui/icons-material/Movie';
 
 import { NavLink } from "react-router-dom";
 
@@ -42,6 +43,13 @@ class Sidebar extends Component {
                                 </NavLink>
 
                             </li>
+                            <li className="sidebarListItem">
+                                <NavLink exact to="film">
+                                    <MovieIcon /> Film
+                                </NavLink>
+
+                            </li>
+
                             <li className="sidebarListItem">
 
                                 <label>
