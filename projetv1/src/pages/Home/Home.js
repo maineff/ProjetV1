@@ -1,3 +1,4 @@
+// reactstrap components
 import Grid from "@mui/material/Grid";
 import * as React from "react";
 import Box from "@mui/material/Box";
@@ -14,7 +15,6 @@ import Widget5 from "../../component/Widgets/Widget5";
 import Widget6 from "../../component/Widgets/Widget6";
 
 import "../../App.css";
-// reactstrap components
 import "./Home.css";
 
 const data = {

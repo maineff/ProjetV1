@@ -5,7 +5,7 @@
     width: 160px;
 }
 
-.h1{
+h1{
     color: white;
 }
 
@@ -18,5 +18,10 @@
     margin: 5px;
     width: 100%;
     text-align: center;
+    
   }
   
+
+label{
+    color: white;
+}

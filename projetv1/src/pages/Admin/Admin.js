@@ -1,4 +1,7 @@
 import "../../App.css";
+import Sidebar from "../../component/Sidebar/Sidebar";
+import "./Admin.css";
+
 // reactstrap components
 import Grid from "@mui/material/Grid";
 import * as React from "react";
@@ -6,11 +9,10 @@ import Box from "@mui/material/Box";
 
 import { Input } from "@mui/material";
 import { Button } from "@mui/material";
-import axios from "axios";
 
-import Sidebar from "../../component/Sidebar/Sidebar";
-import "./Admin.css";
-import { lightGreen } from "@mui/material/colors";
+
+
+
 
 let films = [];
 
@@ -64,6 +66,7 @@ class Admin extends React.Component {
                 <center>
                   <h1>Gerer les API</h1>
                 </center>
+                <label>Titre: </label>
                 <Input
                   className="input"
                   type="text"
@@ -73,6 +76,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
+              <label>Descrition:</label>
                 <Input
                   className="input"
                   name="description"
@@ -84,6 +88,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
+              <label>Date de sortie du film: </label>
                 <Input
                   className="input"
                   name="date"
@@ -93,6 +98,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
+              <label>Popularite du film: </label>
                 <Input
                   className="input"
                   name="popularite"
@@ -104,6 +110,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
+              <label>Origine: </label>
                 <Input
                   className="input"
                   name="origine"

@@ -1,14 +1,9 @@
 import "./Sidebar.css";
 import React from "react";
 import { Component } from "react";
-import Switch from "react-switch";
-
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import SearchIcon from '@mui/icons-material/Search';
-import ToggleOnIcon from '@mui/icons-material/ToggleOn';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import MovieIcon from '@mui/icons-material/Movie';
-
 import { NavLink } from "react-router-dom";
 
 class Sidebar extends Component {
@@ -50,15 +45,6 @@ class Sidebar extends Component {
 
                             </li>
 
-                            <li className="sidebarListItem">
-
-                                <label>
-
-                                    <Switch onChange={this.handleChange} checked={this.state.checked} />
-                                    <span>Change theme</span>
-                                </label>
-
-                            </li>
 
                         </ul>
 
