@@ -6,15 +6,13 @@ import "./Admin.css";
 import Grid from "@mui/material/Grid";
 import * as React from "react";
 import Box from "@mui/material/Box";
+import axios from "axios";
 
 import { Input } from "@mui/material";
 import { Button } from "@mui/material";
 
-
-
-
-
 let films = [];
+let filmActuel = [];
 
 //page admin pour gerer les API
 class Admin extends React.Component {
@@ -28,6 +26,7 @@ class Admin extends React.Component {
       origine: "",
     };
     this.handleClick = this.handleClick.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   handleClick(e) {
@@ -51,8 +50,32 @@ class Admin extends React.Component {
     })
       .then((res) => res.json())
       .then((data) => console.log(data))
-      .then(()=>alert("Le film a bien été ajouté !"))
+      .then(() => alert("Le film a bien été ajouté !"));
     console.log(databody, "databody");
+  }
+
+  delete(e) {
+    e.preventDefault();
+    let databody = {
+      titre: this.state.titre,
+      description: this.state.description,
+      date: this.state.date,
+      popularite: this.state.popularite,
+      origine: this.state.origine,
+    };
+    fetch = async () => {
+      try {
+        const { data: film } = await axios.get("http://localhost:5000");
+        films = film;
+
+        filmActuel = films.find((unFilm) => unFilm.titre === databody.titre);
+        alert(filmActuel._id);
+        axios.delete(`http://localhost:5000/${filmActuel._id}`);
+      } catch (err) {
+        alert(err);
+      }
+    };
+    fetch();
   }
 
   render() {
@@ -77,7 +100,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
-              <label>Descrition:</label>
+                <label>Descrition:</label>
                 <Input
                   className="input"
                   name="description"
@@ -89,7 +112,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
-              <label>Date de sortie du film: </label>
+                <label>Date de sortie du film: </label>
                 <Input
                   className="input"
                   name="date"
@@ -99,7 +122,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
-              <label>Popularite du film: </label>
+                <label>Popularite du film: </label>
                 <Input
                   className="input"
                   name="popularite"
@@ -111,7 +134,7 @@ class Admin extends React.Component {
                 ></Input>
               </Grid>
               <Grid item xs={12}>
-              <label>Origine: </label>
+                <label>Origine: </label>
                 <Input
                   className="input"
                   name="origine"
@@ -129,7 +152,9 @@ class Admin extends React.Component {
                 <Button className="buton">UPDATE</Button>
               </Grid>
               <Grid item xs={4}>
-                <Button className="buton">SUPPRIMER</Button>
+                <Button className="buton" onClick={this.delete}>
+                  SUPPRIMER
+                </Button>
               </Grid>
             </Grid>
           </Box>

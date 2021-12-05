@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
+    console.log(req.params.id);
     const post = await Posts.findByIdAndDelete(req.params.id);
     if (!post) throw Error("no items");
     res.status(200).json({ success: true });
