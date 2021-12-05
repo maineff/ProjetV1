@@ -1,6 +1,6 @@
 import "../../App.css";
 import * as React from "react";
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
 const data = {
   labels: [],
@@ -108,12 +108,11 @@ class Widget3 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="simplecard">
+      <div className="simplecard">
         <br />
         <br />
-        Nombre d'entrées en millions:{" "}
-        {this.state.info.fields.entrees_millions}  
-        <ArrowCircleDownIcon/>
+        Nombre d'entrées en millions: {this.state.info.fields.entrees_millions}
+        <ArrowCircleDownIcon />
         <div> en {this.state.info.fields.annee} </div>
       </div>
     );
@@ -121,4 +120,3 @@ class Widget3 extends React.Component {
 }
 
 export default Widget3;
-

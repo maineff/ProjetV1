@@ -108,9 +108,9 @@ class Chart2 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="graphcard">
+      <div className="graphcard">
         Nombre de cinemas actifs
-        <Bar className="bar" data={dataBaton}/>
+        <Bar className="bar" data={dataBaton} />
       </div>
     );
   }

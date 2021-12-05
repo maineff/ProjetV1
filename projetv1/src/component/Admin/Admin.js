@@ -6,23 +6,36 @@ import Box from "@mui/material/Box";
 
 import { Input } from "@mui/material";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 import Sidebar from "../Sidebar/Sidebar";
 import "./Admin.css";
+import { lightGreen } from "@mui/material/colors";
+
+let films = [];
 
 //page admin pour gerer les API
 class Admin extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: "", body: "", date: "" };
+    this.state = {
+      titre: "",
+      description: "",
+      date: "",
+      popularite: "",
+      origine: "",
+    };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick(e) {
     e.preventDefault();
     let databody = {
-      title: this.state.title,
-      body: this.state.body,
+      titre: this.state.titre,
+      description: this.state.description,
       date: this.state.date,
+      popularite: this.state.popularite,
+      origine: this.state.origine,
     };
 
     console.log(JSON.stringify(databody));
@@ -54,18 +67,20 @@ class Admin extends React.Component {
                 <Input
                   className="input"
                   type="text"
-                  name="tile"
-                  value={this.state.title}
-                  onChange={(e) => this.setState({ title: e.target.value })}
+                  name="titre"
+                  value={this.state.titre}
+                  onChange={(e) => this.setState({ titre: e.target.value })}
                 ></Input>
               </Grid>
               <Grid item xs={12}>
                 <Input
                   className="input"
-                  name="body"
+                  name="description"
                   type="text"
-                  value={this.state.body}
-                  onChange={(e) => this.setState({ body: e.target.value })}
+                  value={this.state.description}
+                  onChange={(e) =>
+                    this.setState({ description: e.target.value })
+                  }
                 ></Input>
               </Grid>
               <Grid item xs={12}>
@@ -75,6 +90,26 @@ class Admin extends React.Component {
                   type="text"
                   value={this.state.date}
                   onChange={(e) => this.setState({ date: e.target.value })}
+                ></Input>
+              </Grid>
+              <Grid item xs={12}>
+                <Input
+                  className="input"
+                  name="popularite"
+                  type="text"
+                  value={this.state.popularite}
+                  onChange={(e) =>
+                    this.setState({ popularite: e.target.value })
+                  }
+                ></Input>
+              </Grid>
+              <Grid item xs={12}>
+                <Input
+                  className="input"
+                  name="origine"
+                  type="text"
+                  value={this.state.origine}
+                  onChange={(e) => this.setState({ origine: e.target.value })}
                 ></Input>
               </Grid>
               <Grid item xs={4}>

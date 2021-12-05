@@ -1,6 +1,6 @@
 import "../../App.css";
 import * as React from "react";
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
 const data = {
   labels: [],
@@ -108,14 +108,14 @@ class Widget4 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="simplecard">    
-        <br /><br />
+      <div className="card">
+        <br />
         Recette
         <br /> <br />
         <div>
-          {this.state.info.fields.recette_guichet_meur_courants}{" "}
-          millions d'euros
-          <ArrowCircleDownIcon/>
+          {this.state.info.fields.recette_guichet_meur_courants} millions
+          d'euros
+          <ArrowCircleDownIcon />
         </div>
       </div>
     );

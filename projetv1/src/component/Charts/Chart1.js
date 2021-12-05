@@ -11,8 +11,7 @@ import { Bar } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
 const data = {
   labels: [],
@@ -120,7 +119,7 @@ class Chart1 extends React.Component {
     this.paramBaton();
 
     return (
-        <div className="graphcard">
+      <div className="graphcard">
         Nombre d'entrées
         <Line className="bar" data={data} />
         {/* a voir si c'est utile

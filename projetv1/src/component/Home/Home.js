@@ -1,10 +1,6 @@
-
-
-
 import Grid from "@mui/material/Grid";
 import * as React from "react";
 import Box from "@mui/material/Box";
-
 
 import Sidebar from "../Sidebar/Sidebar";
 import Chart1 from "../Charts/Chart1";
@@ -14,13 +10,11 @@ import Widget2 from "../Widgets/Widget2";
 import Widget3 from "../Widgets/Widget3";
 import Widget4 from "../Widgets/Widget4";
 import Widget5 from "../Widgets/Widget5";
-
+import Widget6 from "../Widgets/Widget6";
 
 import "../../App.css";
 // reactstrap components
 import "../Home/Home.css";
-
-
 
 const data = {
   labels: [],
@@ -76,9 +70,7 @@ let villes = [
 ];
 let cinemas = [];
 
-
 class Home extends React.Component {
-
   state = {
     loading: true,
     info: null,
@@ -135,43 +127,34 @@ class Home extends React.Component {
           <Sidebar />
 
           <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
-          <center><h1>Dashboard cinema </h1></center>
+            <center>
+              <h1>Dashboard cinema </h1>
+            </center>
             <Grid container spacing={1} className="firstcard">
-            
               <Grid item xs={4}>
-
-                <Widget1/>
-
+                <Widget1 />
               </Grid>
               <Grid item xs={4}>
-
-                <Widget2/>
-              
+                <Widget2 />
               </Grid>
               <Grid item xs={4}>
-
-                <Widget3/>
-
+                <Widget3 />
               </Grid>
               <Grid item xs={6}>
-                
-                  <Chart1/>
-                
+                <Chart1 />
               </Grid>
               <Grid item xs={6}>
-                
-                <Chart2/>
-
+                <Chart2 />
               </Grid>
               <Grid item xs={7}>
                 <div className="graphcard">Genre/Age des visiteurs</div>
               </Grid>
               <Grid item xs={5}>
-                
-                <Widget4/>
-                <br /> <br />
-                <Widget5/>
-
+                <Widget4 />
+                <br />
+                <Widget5 />
+                <br />
+                <Widget6 />
               </Grid>
             </Grid>
           </Box>

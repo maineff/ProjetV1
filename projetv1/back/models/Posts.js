@@ -2,15 +2,23 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-  title: {
+  titre: {
     type: String,
     require: true,
   },
-  body: {
+  description: {
     type: String,
     require: true,
   },
   date: {
+    type: String,
+    require: true,
+  },
+  popularite: {
+    type: String,
+    require: true,
+  },
+  origine: {
     type: String,
     require: true,
   },

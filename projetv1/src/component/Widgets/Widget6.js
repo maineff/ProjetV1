@@ -10,6 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { Bar } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
+import axios from "axios";
 
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
@@ -67,7 +68,10 @@ let villes = [
 ];
 let cinemas = [];
 
-class Widget5 extends React.Component {
+let films = [];
+let filmActuel = [];
+
+class Widget6 extends React.Component {
   state = {
     loading: true,
     info: null,
@@ -106,6 +110,16 @@ class Widget5 extends React.Component {
       dataBaton.datasets[0].data[i] = cinemas[i];
     }
   }
+  fetch = async () => {
+    try {
+      const { data: film } = await axios.get("http://localhost:5000");
+      films = film;
+
+      filmActuel = films.find((unFilm) => unFilm.popularite === "99");
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   render() {
     if (this.state.loading) {
@@ -117,19 +131,17 @@ class Widget5 extends React.Component {
     }
     this.param();
     this.paramBaton();
+    this.fetch();
 
     return (
       <div className="card">
         <br />
-        Recette moyenne par personne
+        Film plus populaire
         <br /> <br />
-        <div>
-          {this.state.info.fields.recette_moyenne_par_entree_eur} €
-          <ArrowCircleDownIcon />
-        </div>
+        <div>{filmActuel && filmActuel.length != 0 && filmActuel.titre}</div>
       </div>
     );
   }
 }
 
-export default Widget5;
+export default Widget6;
