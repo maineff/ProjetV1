@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
 
-import Home from "./component/Home/Home";
-import Admin from "./component/Admin/Admin";
+import Home from "./pages/Home/Home";
+import Admin from "./pages/Admin/Admin";
 
 const App= () =>{
   return(

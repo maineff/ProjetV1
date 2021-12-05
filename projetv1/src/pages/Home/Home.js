@@ -2,19 +2,19 @@ import Grid from "@mui/material/Grid";
 import * as React from "react";
 import Box from "@mui/material/Box";
 
-import Sidebar from "../Sidebar/Sidebar";
-import Chart1 from "../Charts/Chart1";
-import Chart2 from "../Charts/Chart2";
-import Widget1 from "../Widgets/Widget1";
-import Widget2 from "../Widgets/Widget2";
-import Widget3 from "../Widgets/Widget3";
-import Widget4 from "../Widgets/Widget4";
-import Widget5 from "../Widgets/Widget5";
-import Widget6 from "../Widgets/Widget6";
+import Sidebar from "../../component/Sidebar/Sidebar";
+import Chart1 from "../../component/Charts/Chart1";
+import Chart2 from "../../component/Charts/Chart2";
+import Widget1 from "../../component/Widgets/Widget1";
+import Widget2 from "../../component/Widgets/Widget2";
+import Widget3 from "../../component/Widgets/Widget3";
+import Widget4 from "../../component/Widgets/Widget4";
+import Widget5 from "../../component/Widgets/Widget5";
+import Widget6 from "../../component/Widgets/Widget6";
 
 import "../../App.css";
 // reactstrap components
-import "../Home/Home.css";
+import "./Home.css";
 
 const data = {
   labels: [],

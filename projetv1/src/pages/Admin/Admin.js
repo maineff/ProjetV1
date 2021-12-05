@@ -8,7 +8,7 @@ import { Input } from "@mui/material";
 import { Button } from "@mui/material";
 import axios from "axios";
 
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "../../component/Sidebar/Sidebar";
 import "./Admin.css";
 import { lightGreen } from "@mui/material/colors";
 
