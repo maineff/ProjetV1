@@ -1,21 +1,6 @@
-import Grid from "@mui/material/Grid";
-import * as React from "react";
-import Box from "@mui/material/Box";
-
-import Sidebar from "../../component/Sidebar/Sidebar";
-import Chart1 from "../../component/Charts/Chart1";
-import Chart2 from "../../component/Charts/Chart2";
-import Chart3 from "../../component/Charts/Chart3";
-import Widget1 from "../../component/Widgets/Widget1";
-import Widget2 from "../../component/Widgets/Widget2";
-import Widget3 from "../../component/Widgets/Widget3";
-import Widget4 from "../../component/Widgets/Widget4";
-import Widget5 from "../../component/Widgets/Widget5";
-import Widget6 from "../../component/Widgets/Widget6";
-
 import "../../App.css";
-// reactstrap components
-import "./Home.css";
+import * as React from "react";
+import { Pie } from "react-chartjs-2";
 
 const data = {
   labels: [],
@@ -23,7 +8,6 @@ const data = {
     {
       label: "en millions d'euros",
       data: [],
-      borderColor: "white",
     },
   ],
 };
@@ -46,8 +30,9 @@ const dataBaton = {
   datasets: [
     {
       label: "par ville",
-      data: [null],
-      backgroundcolor: "white",
+      data: [],
+      fill: "blue",
+      stroke: "blue",
     },
   ],
 };
@@ -71,7 +56,7 @@ let villes = [
 ];
 let cinemas = [];
 
-class Home extends React.Component {
+class Chart3 extends React.Component {
   state = {
     loading: true,
     info: null,
@@ -123,46 +108,14 @@ class Home extends React.Component {
     this.paramBaton();
 
     return (
-      <Box className="body">
-        <div className="container">
-          <Sidebar />
-
-          <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
-            <center>
-              <h1>Dashboard cinema </h1>
-            </center>
-            <Grid container spacing={1} className="firstcard">
-              <Grid item xs={4}>
-                <Widget1 />
-              </Grid>
-              <Grid item xs={4}>
-                <Widget2 />
-              </Grid>
-              <Grid item xs={4}>
-                <Widget3 />
-              </Grid>
-              <Grid item xs={6}>
-                <Chart1 />
-              </Grid>
-              <Grid item xs={6}>
-                <Chart2 />
-              </Grid>
-              <Grid item xs={7}>
-                <Chart3/>
-              </Grid>
-              <Grid item xs={5}><br />
-                <Widget4 />
-                <br /><br />
-                <Widget5 />
-                <br /><br />
-                <Widget6 />
-              </Grid>
-            </Grid>
-          </Box>
-        </div>
-      </Box>
+        
+        <div className="graphcard2">
+        Cinema en France
+        <Pie className="bar" data={dataBaton}/>
+      </div>
     );
   }
 }
 
-export default Home;
+export default Chart3;
+
