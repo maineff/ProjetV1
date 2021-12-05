@@ -30,6 +30,10 @@ class Widget6 extends React.Component {
         Film plus populaire
         <br /> <br />
         <div>{filmActuel && filmActuel.length != 0 && filmActuel.titre}</div>
+        <div>{filmActuel && filmActuel.length != 0 && filmActuel.description}</div>
+        <div>{filmActuel && filmActuel.length != 0 && filmActuel.date}</div>
+        <div>{filmActuel && filmActuel.length != 0 && filmActuel.popularite}</div>
+        <div>{filmActuel && filmActuel.length != 0 && filmActuel.origine}</div>
       </div>
     );
   }

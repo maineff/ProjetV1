@@ -1,7 +1,6 @@
-import "../../App.css";
 import "../Film/Film.css";
 import Sidebar from "../../component/Sidebar/Sidebar";
-
+import "../../component/Sidebar/Sidebar.css";
 // reactstrap components
 import Grid from "@mui/material/Grid";
 import * as React from "react";
@@ -20,35 +19,47 @@ class Film extends React.Component {
         try {
             const { data: film } = await axios.get("http://localhost:5000");
             films = film;
+            //console.log(films);
+            
+            
+            for(let i=0; i<films.lenght; i++)
+            {
+                console.log(films[i].titre);
+            }
 
-            filmActuel = films.find((unFilm) => unFilm.popularite === "99");
         } catch (err) {
             console.error(err);
         }
+
     };
 
     render() {
-
+        console.log(films.length);
+        //console.log(films[1]);
         this.fetch();
+        
+        for(let i=0; i<films.lenght; i++)
+            {
+                console.log(films[1]);
+            }
 
         return (
             <Box className="body">
                 <div className="container">
                     <Sidebar />
 
-                    <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3 }}>
+                    <Box component="main" sx={{ flexGrow: 1, bgcolor: "#212427", p: 3}}>
                         <center><h1>Dashboard cinema </h1></center>
                         <Grid container spacing={1} className="firstcard">
 
                             <Grid item xs={12}>
                                 <div className="card">
-                                    <br />
-                                    Film plus populaire
                                     <br /> <br />
-                                    <div>{filmActuel && filmActuel.length != 0 && filmActuel.titre}</div>
+                                    
+                                
                                 </div>
                             </Grid>
-                            
+
                         </Grid>
                     </Box>
                 </div>

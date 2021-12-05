@@ -50,7 +50,8 @@ class Admin extends React.Component {
       body: JSON.stringify(databody),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => console.log(data))
+      .then(()=>alert("Le film a bien été ajouté !"))
     console.log(databody, "databody");
   }
 
@@ -125,7 +126,7 @@ class Admin extends React.Component {
                 </Button>
               </Grid>
               <Grid item xs={4}>
-                <Button className="buton">SAUVEGARDER</Button>
+                <Button className="buton">UPDATE</Button>
               </Grid>
               <Grid item xs={4}>
                 <Button className="buton">SUPPRIMER</Button>
